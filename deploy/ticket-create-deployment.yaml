@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine-ticket-receiver
+  labels:
+    app: redmine-ticket-receiver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redmine-ticket-receiver
+  template:
+    metadata:
+      labels:
+        app: redmine-ticket-receiver
+    spec:
+      containers:
+      - name: redmine-ticket-receiver
+        image: manato0405/ticket-create:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: REDMINE_URL
+          value: "http://monitoring-master-ml:32300/"
+        - name: API_KEY
+          value: "d5ec3e180eb1b8344641be07cf1a6850eeb87ecb"
+        - name: PROJECT_ID
+          value: "on-call"
+
