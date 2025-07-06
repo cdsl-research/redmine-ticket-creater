@@ -4,6 +4,10 @@
 ### 環境
 - Ubuntu 24.04.1 LTS
 - Python 3.10.12
+- K3s
+- Prometheus
+- Alertmanager
+- Redmine
 
 ### Pythonライブラリ
 - flask
@@ -11,6 +15,22 @@
 - json
 - datetime
 - os
+
+### 流れ
+
+流れは以下になります．Prometheusがexporterから取得したメトリクスをもとにアラートを発行します．Alertmanagerはそのアラートを通知する役割があります．今回は通知先としてredmine-ticket-createrを選択します．
+
+
+
+
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/c850c213-510a-40f3-8a3b-f702440a5ec2" />
+
+
+Alertmanagerでの通知先の設定は以下の記事を参考にしてください．
+- https://github.com/cdsl-research/Prometheus-tmp-cdsl
+- https://qiita.com/g21240349d/items/7886980954ad218e90be
+
+
 
 
 ### 構成要素
@@ -174,6 +194,15 @@ WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://192.168.100.76:8000
 Press CTRL+C to quit
 ```
+
+7. 確認
+ブラウザでredmineにチケットがあるのかを確認しましょう．
+http://<redmineの配置されている対象のIP or Host名>:<公開したPort>で見れます．
+
+<img width="851" alt="スクリーンショット 2025-07-06 14 07 16" src="https://github.com/user-attachments/assets/f01571bc-c45b-47cc-a1d1-1e6ae8fb762d" />
+
+このようにAlertの通知からチケットが作成されていればOKです．
+
 
 
 
