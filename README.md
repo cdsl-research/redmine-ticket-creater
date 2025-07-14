@@ -120,7 +120,7 @@ Successfully installed Flask-2.3.3 Jinja2-3.1.6 MarkupSafe-3.0.2 Werkzeug-3.1.3 
 ```
 
 4. schedule.jsonの編集
-それぞれの曜日の箇所と***の部分に時間とredmineで登録されているユーザIDを入れる．
+それぞれの曜日の箇所と***の部分に時間とredmineで登録されているユーザIDを入れる．時間はUTC時間で入れてください．
 
 確認の仕方は以下の通りである．
 ```
