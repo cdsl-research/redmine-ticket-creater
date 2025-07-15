@@ -4,9 +4,9 @@
 ### 環境
 - Ubuntu 24.04.1 LTS
 - Python 3.10.12
-- K3s
-- Prometheus
-- Alertmanager
+- K3s 1.30.6+k3s1
+- Prometheus 2.53.1
+- Alertmanager 0.27.0
 - Redmine
 
 ### Pythonライブラリ
