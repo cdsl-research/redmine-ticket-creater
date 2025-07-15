@@ -207,11 +207,13 @@ Press CTRL+C to quit
 
 ### テスト
 
-このプログラムが実際に動作するかどうかをテストします．このテストは上で紹介した「使い方」の章を行った後に行ってください．
+このプログラムが実際に動作するかどうかをテストします．テストは上で紹介した「使い方」の章を行った後に行ってください．
 
 1. Redmineのブラウザの画面を確認
 
-最初にRedmineブラウザを確認してみましょう．
+最初にRedmineのブラウザでチケット件数を確認してみましょう．
+http://<redmineの配置されている対象のIP or Host名>:<公開したPort>で見れます．
+
 <img width="1026" height="680" alt="スクリーンショット 2025-07-15 12 07 52" src="https://github.com/user-attachments/assets/c14ba3ba-5cb0-458a-9cba-f5205a85f8f2" />
 
 最初に3件だけチケットが登録されています．
@@ -283,9 +285,6 @@ http://<PrometheusのエンドポイントのIP or Host名>:<Port番号>/alerts
 
 このように追加されたアラートが登録されて，アラートがPushされています．
 
-
-
-Flaskで作成したソフトウェアも見てみると以下のようにPostされています．
 ```
 monitoring@monitoring-master-ml:~/redmine-ticket-create$ source redmine/bin/activate
 (redmine) monitoring@monitoring-master-ml:~/redmine-ticket-create$ python3 app.py 
@@ -299,15 +298,17 @@ Press CTRL+C to quit
 10.42.0.0 - - [15/Jul/2025 04:20:41] "POST /alert HTTP/1.1" 200 -
 ```
 
+Flaskで作成したソフトウェアも見てみると以下のようにPostされています．
+
 
  確認
 ブラウザでredmineにチケットがあるのかを確認しましょう．
 http://<redmineの配置されている対象のIP or Host名>:<公開したPort>で見れます．
 
-<img width="1026" height="680" alt="スクリーンショット 2025-07-15 12 07 52" src="https://github.com/user-attachments/assets/1da7d489-7001-4da0-9e90-a292bcda09bb" />
+<img width="1280" height="633" alt="スクリーンショット 2025-07-15 12 43 13" src="https://github.com/user-attachments/assets/4434814d-a466-42ad-8721-3dc6bee63b4b" />
 
 
-チケットが新たに追加されていますね．
+チケットの件数が4件になり新たに追加されていることがわかります．
 このようにAlertの通知からチケットが作成されていればOKです．
 
 
